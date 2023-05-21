@@ -35,6 +35,8 @@ Dictionary cache built:
 - **-m 0** Tells hashcat the mode to use, 0 is MD5
 - **md5_hash** File containing the md5 hash
 - Append the worldlist you want to use, in this case rockyou.txt
+
+\
 \
 
 2. CBFDAC6008F9CAB4083784CBD1874F76618D2A97
