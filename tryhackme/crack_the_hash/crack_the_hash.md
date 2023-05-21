@@ -2,6 +2,14 @@
 
 > Lorenzo De Simone | 21.05.2023
 
+- [Crack the Hash](#crack-the-hash)
+  - [Exploitation](#exploitation)
+    - [Stage 1](#stage-1)
+      - [Flags](#flags)
+    - [Stage 2](#stage-2)
+      - [Flags](#flags-1)
+
+
 ## Exploitation
 
 We can use the command **hash-identifier** or the Website https://hashes.com/en/tools/hash_identifier to identify the hashes.
@@ -10,7 +18,7 @@ We can use the command **hash-identifier** or the Website https://hashes.com/en/
 
 1. 48bb6e862e54f2a795ffc4e541caed4d
 
-Looks like a md5 Hash, could be crackable with haschat.
+Looks like a md5 Hash, could be crackable with hashcat.
 
 ```console
 hashcat -m 0 md5_hash /usr/share/wordlists/rockyou.txt
@@ -24,7 +32,7 @@ Dictionary cache built:
 
 48bb6e862e54f2a795ffc4e541caed4d:easy 
 ```
-- **-m 0** Tells haschat the mode to use, 0 is MD5
+- **-m 0** Tells hashcat the mode to use, 0 is MD5
 - **md5_hash** File containing the md5 hash
 - Append the worldlist you want to use, in this case rockyou.txt
 
