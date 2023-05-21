@@ -12,11 +12,14 @@
 
 ## Exploitation
 
+
 We can use the command **hash-identifier** or the Website https://hashes.com/en/tools/hash_identifier to identify the hashes.
+
 
 ### Stage 1
 
-...**HASH** => 48bb6e862e54f2a795ffc4e541caed4d
+
+**HASH 1** => 48bb6e862e54f2a795ffc4e541caed4d
 
 Looks like a md5 Hash, could be crackable with hashcat.
 
@@ -37,7 +40,7 @@ Dictionary cache built:
 - Append the worldlist you want to use, in this case rockyou.txt
 
 
-...**HASH** => CBFDAC6008F9CAB4083784CBD1874F76618D2A97
+**HASH 2** => CBFDAC6008F9CAB4083784CBD1874F76618D2A97
 
 Looks like a SHA1 Hash, could be also crackable with hashcat.
 
@@ -58,7 +61,7 @@ cbfdac6008f9cab4083784cbd1874f76618d2a97:password123
 - Append the wordlist you want to use, in this case rockyou.txt
 
 
-...**HASH** => 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
+**HASH 3** => 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
 
 Looks like a SHA256 Hash, let's try hashcat aswell. 
 
@@ -78,7 +81,7 @@ Dictionary cache hit:
 - Append wordlist, in this case rockyou.txt
 
 
-...**HASH** => $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
+**HASH 4** => $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
 Possible algorithms: bcrypt $2*$, Blowfish (Unix)
 
@@ -99,13 +102,15 @@ hashcat -m 3200 -a 3  blow_fish_hash b?l?l?l
 A faster way could also be to filter rockyou.txt to words that are only 4 characters long. 
 
 
-...**HASH** => 279412f945939ba78ce0758d3fd83daa
+**HASH 5** => 279412f945939ba78ce0758d3fd83daa
 
 Looks like a MD4 hash, crackstation may also be able to crack this (rainbow tables). 
 
 Crackstation got a result => Eternity22
 
+
 #### Flags 
+
 
 1. 48bb6e862e54f2a795ffc4e541caed4d
 > easy
@@ -122,9 +127,11 @@ Crackstation got a result => Eternity22
 5. 279412f945939ba78ce0758d3fd83daa
 > Eternity22
 
+
 ### Stage 2
 
-1. F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85
+
+**HASH 1** => F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85
 
 Looks like SHA256, Maybe hashcat again? 
 
@@ -139,9 +146,9 @@ Dictionary cache hit:
 
 f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:paule
 ```
-\
 
-2. 1DFECA0C002AE40B8619ECF94819CC1B
+
+**HASH 2** => 1DFECA0C002AE40B8619ECF94819CC1B
 
 Looks like NTLM algorithm, does hashcat have something for that? 
 > Mode 1000 seems to be ntlm
@@ -153,7 +160,7 @@ hashcat -m 1000 ntlm_hash /usr/share/wordlists/rockyou.txt
 ```
 
 
-3. $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.
+**HASH 3** => $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.
 
 Looks like sha512crypt, salt is present in hash.
 > Mode 1800
@@ -169,7 +176,7 @@ $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41
 ```
 
 
-4. e5d8870e5bdd26602cab8dbe07a942c8669e56d6
+**HASH 4** => e5d8870e5bdd26602cab8dbe07a942c8669e56d6
 
 SHA1, but we also have salt in the challenge => **tryhackme**
 > Mode 110 or 120, probably
@@ -194,7 +201,9 @@ cat sha1_hash
 e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme
 ```
 
+
 #### Flags
+
 
 1. F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85
 >  paule
