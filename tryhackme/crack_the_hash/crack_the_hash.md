@@ -77,7 +77,7 @@ Dictionary cache hit:
 
 4. $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
-$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom - bleh - Possible algorithms: bcrypt $2*$, Blowfish (Unix)
+Possible algorithms: bcrypt $2*$, Blowfish (Unix)
 
 ```console
 hashcat -m 3200 blow_fish_hash /usr/share/wordlists/rockyou.txt
@@ -95,7 +95,7 @@ hashcat -m 3200 -a 3  blow_fish_hash b?l?l?l
 
 A faster way could also be to filter rockyou.txt to words that are only 4 characters long. 
 
-5. 279412f945939ba78ce0758d3fd83daa
+1. 279412f945939ba78ce0758d3fd83daa
 
 Looks like a MD4 hash, crackstation may also be able to crack this (rainbow tables). 
 
