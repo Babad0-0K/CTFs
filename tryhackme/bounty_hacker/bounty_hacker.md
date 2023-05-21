@@ -2,6 +2,18 @@
 
 > Lorenzo De Simone | 21.05.2023
 
+- [Bounty Hacker](#bounty-hacker)
+  - [Hosts](#hosts)
+  - [Enumeration](#enumeration)
+    - [Nmap](#nmap)
+    - [Directory busting / Nikto](#directory-busting--nikto)
+    - [FTP Server](#ftp-server)
+  - [Exploitation](#exploitation)
+    - [Access to the system](#access-to-the-system)
+    - [Privilege Escalation](#privilege-escalation)
+  - [Flags](#flags)
+
+
 ## Hosts 
 
 ```bash
