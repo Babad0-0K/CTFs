@@ -35,9 +35,9 @@ Dictionary cache built:
 - **-m 0** Tells hashcat the mode to use, 0 is MD5
 - **md5_hash** File containing the md5 hash
 - Append the worldlist you want to use, in this case rockyou.txt
+\
 
-
-1. CBFDAC6008F9CAB4083784CBD1874F76618D2A97
+2. CBFDAC6008F9CAB4083784CBD1874F76618D2A97
 
 Looks like a SHA1 Hash, could be also crackable with hashcat.
 
@@ -56,7 +56,7 @@ cbfdac6008f9cab4083784cbd1874f76618d2a97:password123
 - **-m 100** Tells hashcat the mode to use, 100 is SHA1
 - **sha1_hash** File containing SHA1 hash 
 - Append the wordlist you want to use, in this case rockyou.txt
-
+\
 
 3. 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
 
@@ -76,7 +76,7 @@ Dictionary cache hit:
 - **-m 1400** Tells hashcat the mode to use, 1400 is SHA256
 - **sha_256_hash** File containing the SHA256 hash
 - Append wordlist, in this case rockyou.txt
-
+\
 
 4. $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
@@ -97,7 +97,7 @@ hashcat -m 3200 -a 3  blow_fish_hash b?l?l?l
 - **b?l?l?l** Specifies a mask, String is 4 lower case characters long and starts with **b**
 
 A faster way could also be to filter rockyou.txt to words that are only 4 characters long. 
-
+\
 
 5. 279412f945939ba78ce0758d3fd83daa
 
@@ -139,7 +139,7 @@ Dictionary cache hit:
 
 f09edcb1fcefc6dfb23dc3505a882655ff77375ed8aa2d1c13f640fccc2d0c85:paule
 ```
-
+\
 
 2. 1DFECA0C002AE40B8619ECF94819CC1B
 
@@ -151,7 +151,7 @@ hashcat -m 1000 ntlm_hash /usr/share/wordlists/rockyou.txt
 
 1dfeca0c002ae40b8619ecf94819cc1b:n63umy8lkf4i
 ```
-
+\
 
 3. $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.
 
@@ -167,7 +167,7 @@ hashcat -m 1800 sha512_hash rockyou_6.txt
 
 $6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.:waka99
 ```
-
+\
 
 4. e5d8870e5bdd26602cab8dbe07a942c8669e56d6
 
