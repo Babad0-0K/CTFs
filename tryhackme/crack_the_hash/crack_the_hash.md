@@ -16,7 +16,7 @@ We can use the command **hash-identifier** or the Website https://hashes.com/en/
 
 ### Stage 1
 
-1. 48bb6e862e54f2a795ffc4e541caed4d
+...**HASH** => 48bb6e862e54f2a795ffc4e541caed4d
 
 Looks like a md5 Hash, could be crackable with hashcat.
 
@@ -37,7 +37,7 @@ Dictionary cache built:
 - Append the worldlist you want to use, in this case rockyou.txt
 
 
-2. CBFDAC6008F9CAB4083784CBD1874F76618D2A97
+...**HASH** => CBFDAC6008F9CAB4083784CBD1874F76618D2A97
 
 Looks like a SHA1 Hash, could be also crackable with hashcat.
 
@@ -58,7 +58,7 @@ cbfdac6008f9cab4083784cbd1874f76618d2a97:password123
 - Append the wordlist you want to use, in this case rockyou.txt
 
 
-3. 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
+...**HASH** => 1C8BFE8F801D79745C4631D09FFF36C82AA37FC4CCE4FC946683D7B336B63032
 
 Looks like a SHA256 Hash, let's try hashcat aswell. 
 
@@ -78,7 +78,7 @@ Dictionary cache hit:
 - Append wordlist, in this case rockyou.txt
 
 
-4. $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
+...**HASH** => $2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom
 
 Possible algorithms: bcrypt $2*$, Blowfish (Unix)
 
@@ -99,7 +99,7 @@ hashcat -m 3200 -a 3  blow_fish_hash b?l?l?l
 A faster way could also be to filter rockyou.txt to words that are only 4 characters long. 
 
 
-5. 279412f945939ba78ce0758d3fd83daa
+...**HASH** => 279412f945939ba78ce0758d3fd83daa
 
 Looks like a MD4 hash, crackstation may also be able to crack this (rainbow tables). 
 
